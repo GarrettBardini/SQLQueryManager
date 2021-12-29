@@ -4,8 +4,9 @@
 The purpose of this script is to read a SQL query from a file to pull data and load it to a pandas data frame. 
 
 ## Requirements ## 
-Pandas: ```ps1 pip install pandas```
-PYODBC: ```ps1 pip install pyodbc```
+Pandas: ```pip install pandas```
+
+PYODBC: ```pip install pyodbc```
 
 ## SQL Query Manager Usage ## 
 ```python
