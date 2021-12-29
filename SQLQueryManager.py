@@ -2,15 +2,11 @@
 #####     SQL QUERY MANAGER: SQL PYODBC DATA PULL         #####
 #####     AUTHOR: GARRETT PETER BARDINI (GPB)             #####
 #####     CREATE_DATE: 2021/12/05                         #####
-#####     LAST_MODIFIED: 2021/12/15                       #####
+#####     LAST_MODIFIED: 2021/12/28                       #####
 ###############################################################
 import os
 import pandas as pd
 import pyodbc
-import statsmodels.api as sm
-import matplotlib.pyplot as plt
-import numpy as np
-from dateutil.relativedelta import *
 
 class OpenDBConnection():
     def __init__(self, server, database):
@@ -20,7 +16,7 @@ class OpenDBConnection():
     def __enter__(self):
         return self.connection
       
-    def __exit__(self, exc_type, exc_value, traceback):
+    def __exit__(self):
         self.connection.close()
 
 def read_query(path):
