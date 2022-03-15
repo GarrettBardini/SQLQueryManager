@@ -26,12 +26,14 @@ def read_query(path):
             query = ('SET NOCOUNT ON;\n' + f.read())
             return query 
 
-working_dir = os.path.dirname(os.path.realpath(__file__)) # os.getcwd() # 
-server = 'ServerName'
-database = 'DataBase'
-query = read_query(r"C:\Query.sql")
+if __name__ == "__main__":
+    WorkingDir = os.path.dirname(os.path.realpath(__file__)) # os.getcwd() # 
+    os.chdir(WorkingDir)
+    server = 'ServerName'
+    database = 'DataBase'
+    query = read_query(r"C:\Query.sql")
 
-with OpenDBConnection(server, database) as conn:
-    df = pd.io.sql.read_sql(query, conn)
+    with OpenDBConnection(server, database) as conn:
+        df = pd.io.sql.read_sql(query, conn)
 
-print(df)
+    print(df)
